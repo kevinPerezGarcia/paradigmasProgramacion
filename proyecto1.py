@@ -37,16 +37,16 @@ def listar_trabajadores():
 def main():
     while True:
         os.system('cls')
-        print("\n\n\033[32m       *MENÚ DE OPCIONES*\033[0m")
+        print("\n\n\033[32m *MENÚ DE OPCIONES*\033[0m")
         print("Opción".rjust(33))
         print("------".rjust(33))
         print("Registrar trabajadores ....... 1")
         print("Consultar trabajadores ....... 2")
         print("Eliminar trabajadores  ....... 3")
         print("Listar trabajadores    ....... 4")
-        print("\033[33mSalir ....... 0 \033[0m".rjust(42))
+        print("\033[33mSalir ....... 0 \033[0m".rjust(40))
         while True:
-            opcion = input("\033[32mOpción? \033[0m ".rjust(35))
+            opcion = input("\033[32mOpción? \033[0m ".rjust(32))
             if opcion in ['0','1','2','3','4']:
                 break
             else:
@@ -58,5 +58,5 @@ def main():
         elif opcion == '4': listar_trabajadores()
         elif opcion == '0': break
 
-# Cuerpo principal del programa
+# Cuerpo principl del programa
 main()
