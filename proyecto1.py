@@ -13,12 +13,41 @@ trabajador = {
 # Lista vacía para almacenar los datos de los trabajadores
 lista_trabajadores = []
 
-# ------------ Función consultar
-def consultar_trabajadores():
-    pass
-
 # ------------ Función registrar
 def registrar_trabajadores():
+    global trabajador
+
+    # Ciclo para ingresar los dats de múltiples trabajadores
+    while True:        os.system("cls")
+        print("\n\n\033[32m** MODULO REGISTRO DE TRABAJADORES **\033[0m\n]")
+
+        # Solicitar al usuario que ingrese los datos del trabajador
+        dni_a_buscar = input("Ingrese el dni ó '\033[33m000\033[0m' para volver al Menú: ")
+
+        # Si el usuario ingresa "000", se rompe el ciclo
+        if dni_a_buscar == '000':
+            break
+        else:
+            resultado_busqueda = buscar_dni(dni_a_buscar)
+            if resultado_busqueda[0]:
+                print(f"\DNI \033[32m{dni_a_buscar}\033[0m ya está registrado.")
+                trabajador = resultado_busqueda[2]
+                input(f"\nPertenece al trabajador: {trabajador['nombre_apellido']}")
+                continue
+            else:
+                trabajador['dni'] = dni_a_buscar
+                trabajador['nombre_apellid'] = input("Nombre y apellid: ").lower().title()
+                trabajador['año_de_ingresos'] = validar_anio()
+                trabajador['sexo'] = validar_sexo()
+                trabajador['edad'] = validar_edad()
+                trabajador['salario'] = validar_salario()
+
+                # Agregar una copia del diccionario <trabajador> a la lista de trabajadores
+                lista_trabajadores.append(trabajador.copy())
+                input("\nTrabajador Registrado, presione <enter>")
+
+# ------------ Función consultar
+def consultar_trabajadores():
     pass
 
 # ------------ Función eliminar
